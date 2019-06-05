@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+input {
+  margin: 1rem;
+  width: 20rem;
+  padding: 1rem 0.5rem;
+}
+
+.downshift-dropdown {
+  margin: 0 auto;
+  width: 20rem;
+  border: 1px solid whitesmoke;
+  border-bottom: none;
+}
+
+.dropdown-item {
+  padding: 0.5rem;
+  cursor: pointer;
+  border-bottom: 1px solid whitesmoke;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.dropdown-button {
+  padding: 0.6rem;
+  border-radius: 3px;
+  background: white;
+  cursor: pointer;
+}
+
+.popper-div {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+.popper-item {
+  padding: 0.5rem;
+  border-bottom: 1px solid whitesmoke;
+}
