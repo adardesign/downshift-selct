@@ -22,6 +22,8 @@ export default class Select extends Component {
   }
 
   render() {
+    // todo, provide a default
+    const { selectLabel, itemsMenu, selectedItem } = this.props;
     return (
       <Downshift
         onChange={this.onChange}
@@ -32,25 +34,33 @@ export default class Select extends Component {
           const {
             isOpen,
             getToggleButtonProps,
+            getItemProps,
+            getMenuProps,
             highlightedIndex,
-            getLabelProps
+            selectedItem: dsSelectedItem,
+            getLabelProps,
+            getToggleProps
           } = props;
-          console.log(props);
+          console.log("downshift props", props);
+          const theSelectLabel = selectLabel(...props);
+          const theItemsMenu = itemsMenu({
+            items: this.items,
+            isOpen: isOpen,
+            downshiftProps: { ...props }
+          });
+          console.log("isOpen", isOpen);
+          const theSelectedItem = selectedItem({
+            state: this.state,
+            isOpen: isOpen,
+            selectedItem: highlightedIndex,
+            ...props
+          });
+          console.log("before render return", isOpen);
           return (
             <div>
-              {Label && <Label labelProps={{ ...getLabelProps() }} />}
-              {SelectedItemComponent && (
-                <SelectedItemComponent
-                  state={this.state}
-                  isOpen={isOpen}
-                  selectedItem={highlightedIndex}
-                  {...getToggleButtonProps()}
-                />
-              )}
-
-              {isOpen && ItemsMenu && (
-                <ItemsMenu items={this.items} {...props} state={this.state} />
-              )}
+              {theSelectLabel}
+              {theSelectedItem}
+              {isOpen && theItemsMenu}
             </div>
           );
         }}
